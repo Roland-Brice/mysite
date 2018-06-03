@@ -23,6 +23,8 @@ class IndexView(generic.ListView):
             pub_date__lte=timezone.now()
         ).order_by('-pub_date')[:5]
 
+    search_fields = ['question_text']
+
 class DetailView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
